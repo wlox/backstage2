@@ -1560,12 +1560,12 @@ class Form {
 		$link_to = str_replace('.','_',$link_to);
 		$caption = ($caption) ? $caption : $name;
 		$value = ($this->info) ? $this->info[$name] : $value;
-		$interval_value = ($this->info) ? $this->info[$name.'_interval'] : (($only_interval) ? $value : false);
-		$hour = date((($ampm) ? 'h' : 'H'),strtotime($value));
-		$minute = date('i',strtotime($value));
+		$hour = ($value) ? date((($ampm) ? 'h' : 'H'),strtotime($value)) : false;
+		$minute = ($value) ? date('i',strtotime($value)) : false;
 		$a = date('a',strtotime($value));
 		$value_in = ($value && $value != '0000-00-00 00:00:00' && !strstr($value,'1969-12-31')) ? date('Y,m -1,d',strtotime($value)) : '';
 		$value = ($value && $value != '0000-00-00 00:00:00' && !strstr($value,'1969-12-31')) ? date($format,strtotime($value)) : '';
+		$interval_value = ($this->info) ? $this->info[$name.'_interval'] : (($only_interval) ? $value : false);
 		$jscript = self::parseJscript($jscript,$id,$j,$grid_input);
 		$outside_jscript = (strstr($jscript,'outside|')) ? '<script type="text/javascript">'.str_replace('outside|','',$jscript).'</script>' : false;
 		$jscript = strstr($jscript,'outside|') ? false : $jscript;
@@ -1641,18 +1641,24 @@ class Form {
 		if ($time || $only_time) {
 			$only_class = ($only_time) ? 'only' : '';
 			$HTML .= " <select name=\"{$this->name}[{$name}_h]\" id=\"{$this->name}_{$id}_h\" class=\"time_hour $only_class\" $jscript $style>";
+				if ($only_time)
+					$HTML .= "<option value=\"00\" ".((!$hour) ? 'selected = "selected"' : '')."></option>";
+					
 				foreach ($hours as $h) {
 					$h = sprintf("%02d",$h);
 					$HTML .= "<option value=\"$h\" ".(($h == $hour) ? 'selected = "selected"' : '').">$h</option>";
 				}
 			$HTML .= "</select> : ";
 			$HTML .= "<select name=\"{$this->name}[{$name}_m]\" id=\"{$this->name}_{$id}_m\" class=\"time_minute\" $jscript $style>";
+				if ($only_time)
+					$HTML .= "<option value=\"00\" ".((!$minute) ? 'selected = "selected"' : '')."></option>";
+				
 				foreach ($minutes as $m) {
 					$m = sprintf("%02d",$m);
 					$HTML .= "<option value=\"$m\" ".(($m == $minute) ? 'selected = "selected"' : '').">$m</option>";
 				}
 			$HTML .= "</select>";
-			if ($ampm) {
+			if ($ampm) {				
 				$HTML .= "
 						<select name=\"{$this->name}[{$name}_ampm]\" id=\"{$this->name}_{$id}_ampm\" class=\"time_ampm\" $jscript $style>
 							<option value=\"am\" ".(($a == 'am') ? 'selected = "selected"' : '').">AM</option>
