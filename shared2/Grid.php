@@ -75,8 +75,8 @@ class Grid {
 		$this->inset_id_field = ($_REQUEST['inset_id_field']) ? $_REQUEST['inset_id_field'] : $CFG->inset_id_field;
 		$this->inset_id_field = ($this->inset_id_field) ? $this->inset_id_field : 'f_id';
 		$this->inset_i = ($CFG->inset_i) ? $CFG->inset_i : $_REQUEST['inset_i'];
-		$CFG->inset_url = ($this->inset_id > 0) ? (($CFG->inset_url) ? $CFG->inset_url : $_REQUEST['inset_url']) : false;
-		$this->link_url = ($this->inset_id > 0) ? $CFG->inset_url : $CFG->url;
+		$CFG->inset_url = ($this->inset_id) ? (($CFG->inset_url) ? $CFG->inset_url : $_REQUEST['inset_url']) : false;
+		$this->link_url = ($this->inset_id) ? $CFG->inset_url : $CFG->url;
 		$this->link_url = ($button_link_url) ? $button_link_url : $this->link_url;
 		$this->is_tab = $CFG->is_tab;
 		$this->is_tab = ($button_link_is_tab) ? 1 : $this->is_tab;
@@ -412,7 +412,7 @@ class Grid {
 		$data = DB::get($this->table,$this->fields,$page,$this->rows_per_page,$this->order_by,$this->order_asc,0,$filters,$this->inset_id,$this->inset_id_field,false,false,false,false,false,false,false,$this->sql_filter,$this->group_by,$this->no_group_by);
 		$HTML = "";
 		
-		if ($CFG->backstage_mode && (User::permission(0,0,$this->link_url,false,$this->is_tab) > 1) && !($this->inset_id > 0)) {
+		if ($CFG->backstage_mode && (User::permission(0,0,$this->link_url,false,$this->is_tab) > 1) && $this->inset_id === false) {
 			$HTML .= '
 			<form id="grid_form_'.$this->table.$this->i.'" name="grid_form_'.$this->table.$this->i.'" action="'.$CFG->self.'" method="POST">
 				<input type="hidden" name="current_url" value="'.$CFG->url.'" />
@@ -1280,7 +1280,7 @@ class Grid {
 		
 		if ($this->rows_per_page > 30) echo $pagination;
 		
-		if ($CFG->backstage_mode && (User::permission(0,0,$this->link_url,false,$this->is_tab) > 1) && !($this->inset_id > 0)) {
+		if ($CFG->backstage_mode && (User::permission(0,0,$this->link_url,false,$this->is_tab) > 1) && $this->inset_id === false) {
 			echo "</form>";
 			
 			if (!($this->inset_id > 0 || $CFG->is_form_inset))

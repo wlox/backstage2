@@ -2275,7 +2275,7 @@ class Form {
 			$HTML  = '<tab><div class="tab_area_container '.$visible.'" id="tab_area_'.$CFG->method_id.'">';
 			if ($url) {
 				$tab = $CFG->is_tab;
-				$CFG->inset_id = $this->record_id;
+				$CFG->inset_id = ($this->record_id > 0 ? $this->record_id : '0');
 				$CFG->inset_id_field = $inset_id_field;
 				$CFG->inset_is_tab = $is_tab;
 				$CFG->inset_url = $url;
