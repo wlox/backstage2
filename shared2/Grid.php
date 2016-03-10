@@ -815,7 +815,9 @@ class Grid {
 						if ($CFG->pm_editor)
 							$method_name = Form::peLabel($value['method_id'],'inlineForm');
 							
-						$HTML .= "<th class=\"multiple_input\">".$value['header_caption'].$method_name.'</th>';
+						if ($value['header_caption'])
+							$HTML .= "<th class=\"multiple_input\">".$value['header_caption'].$method_name.'</th>';
+						
 						continue;
 					}
 
@@ -907,6 +909,9 @@ class Grid {
 							$HTML .= $value1;
 						}
 						elseif ($properties['is_form']) {
+							if (!$properties['header_caption'])
+								continue;
+							
 							$HTML .= '<div>';
 							
 							if (!$ref) {
