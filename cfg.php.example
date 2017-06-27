@@ -1,4 +1,4 @@
-<?
+<?php
 class object {}
 $CFG = new object();
 $CFG->dbhost = "";

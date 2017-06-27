@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>PHPMailer - Exceptions test</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>PHPMailer - Exceptions test</title>
 </head>
+
 <body>
-<?php
+  <?php
 require '../PHPMailerAutoload.php';
 
 //Create a new PHPMailer instance
@@ -38,4 +40,5 @@ try {
 }
 ?>
 </body>
+
 </html>

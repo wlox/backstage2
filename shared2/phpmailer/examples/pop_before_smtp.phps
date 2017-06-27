@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>PHPMailer - POP-before-SMTP test</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>PHPMailer - POP-before-SMTP test</title>
 </head>
+
 <body>
-<?php
+  <?php
 require '../PHPMailerAutoload.php';
 
 //Authenticate via POP3
@@ -57,4 +59,5 @@ try {
 }
 ?>
 </body>
+
 </html>

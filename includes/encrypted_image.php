@@ -8,5 +8,3 @@ $file = file_get_contents($url);
 $decrypted = Encryption::decrypt($file);
 
 echo $decrypted;
-
-?>
