@@ -300,11 +300,7 @@ if (User::isLoggedIn() && !(User::$info['verified_authy'] == 'Y' && !($_SESSION[
     } elseif ($CFG->url == 'my-account') {
         include_once 'includes/account.php';
     } else {
-<<<<<<< HEAD
         $form_name = preg_replace("[^a-zA-Z_\-]", "", $_REQUEST['form_name']);
-=======
-        $form_name = ereg_replace("[^a-zA-Z_\-]", "", $_REQUEST['form_name']);
->>>>>>> 9b9f0e63e43b16def9e4e19cdaef97bc3e5550c2
         if (!empty($form_name) && $form_name != 'form_filters' && $form_name != 'loginform' && !$_REQUEST['return_to_self']) {
             $form = new Form($form_name);
             $form->verify();
@@ -363,13 +359,8 @@ if (User::isLoggedIn() && !(User::$info['verified_authy'] == 'Y' && !($_SESSION[
 	';
 
     $l_form = new Form('loginform');
-<<<<<<< HEAD
     $l_form->info['user'] = preg_replace("[^0-9a-zA-Z!@#$%&*?\.\-\_]", "", $l_form->info['user']);
     $l_form->info['pass'] = preg_replace("[^0-9a-zA-Z!@#$%&*?\.\-\_]", "", $l_form->info['pass']);
-=======
-    $l_form->info['user'] = ereg_replace("[^0-9a-zA-Z!@#$%&*?\.\-\_]", "", $l_form->info['user']);
-    $l_form->info['pass'] = ereg_replace("[^0-9a-zA-Z!@#$%&*?\.\-\_]", "", $l_form->info['pass']);
->>>>>>> 9b9f0e63e43b16def9e4e19cdaef97bc3e5550c2
     $l_form->textInput('user', $CFG->user_username, false, false, false, false, false, false, false, false, false, false, false, true);
     $l_form->passwordInput('pass', $CFG->user_password);
     $l_form->submitButton('submit', 'Log In');
@@ -381,7 +372,7 @@ if (User::isLoggedIn() && !(User::$info['verified_authy'] == 'Y' && !($_SESSION[
 if (!$CFG->bypass || ($CFG->url == 'edit_page' && !$_REQUEST['tab_bypass'])) {
     echo '
     <div class="credits" id="credits"><div>&copy; 2011 <a href="http://www.organic.com.pa">Organic Technologies</a>. Derechos reservados.</div></div>
-	</body></html>'; 
+	</body></html>';
 }
 
 ?>
