@@ -97,9 +97,13 @@ if (User::isLoggedIn() && !(User::$info['verified_authy'] == 'Y' && !($_SESSION[
 					<?= Link::url('edit_tabs', '<div class="icon edit_pages"></div><div class="label1">'.$CFG->edit_tabs_button.'</div>', false, false, false, 'content', 'alt') ?>
 					<?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 9b9f0e63e43b16def9e4e19cdaef97bc3e5550c2
+=======
+
+>>>>>>> 10a19b827b82477109ad73bf847082d2d7cd18fc
             } ?>
 					<div class="t_shadow"></div>
 					<div class="r_shadow"></div>
@@ -121,9 +125,13 @@ if (User::isLoggedIn() && !(User::$info['verified_authy'] == 'Y' && !($_SESSION[
 		</div>
 		<?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 9b9f0e63e43b16def9e4e19cdaef97bc3e5550c2
+=======
+
+>>>>>>> 10a19b827b82477109ad73bf847082d2d7cd18fc
         } ?>
 		<!--  div class="nav_button messages">
 			<div class="c">
@@ -371,8 +379,14 @@ if (User::isLoggedIn() && !(User::$info['verified_authy'] == 'Y' && !($_SESSION[
 }
 if (!$CFG->bypass || ($CFG->url == 'edit_page' && !$_REQUEST['tab_bypass'])) {
     echo '
+<<<<<<< HEAD
     <div class="credits" id="credits"><div>&copy; 2011 <a href="http://www.organic.com.pa">Organic Technologies</a>. Derechos reservados.</div></div>
 	</body></html>';
 }
 
+=======
+	<div class="credits" id="credits"><div>&copy; 2011 <a href="http://www.organic.com.pa">Organic Technologies</a>. Derechos reservados.</div></div>
+	</body></html>';
+}
+>>>>>>> 10a19b827b82477109ad73bf847082d2d7cd18fc
 ?>
