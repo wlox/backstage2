@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>PHPMailer - GMail SMTP test</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>PHPMailer - GMail SMTP test</title>
 </head>
+
 <body>
-<?php
+  <?php
 
 //SMTP needs accurate times, and the PHP time zone MUST be set
 //This should be done in your php.ini, but this is how to do it if you don't have access to that
@@ -60,4 +62,5 @@ if (!$mail->send()) {
 }
 ?>
 </body>
+
 </html>

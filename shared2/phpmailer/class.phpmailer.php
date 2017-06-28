@@ -410,7 +410,7 @@ class PHPMailer
      *   string  $subject       the subject
      *   string  $body          the email body
      *   string  $from          email address of sender
-     * 
+     *
      * @type string
      */
     public $action_function = '';
@@ -999,7 +999,6 @@ class PHPMailer
                     str_replace("\r\n", "\n", $header_dkim) . self::CRLF;
             }
             return true;
-
         } catch (phpmailerException $e) {
             $this->setError($e->getMessage());
             if ($this->exceptions) {
@@ -2033,7 +2032,6 @@ class PHPMailer
                 6 => $disposition,
                 7 => 0
             );
-
         } catch (phpmailerException $e) {
             $this->setError($e->getMessage());
             if ($this->exceptions) {

@@ -1,14 +1,14 @@
-<?php 
-require_once ("cfg.php");
-require_once ("shared2/autoload.php");
+<?php
+require_once("cfg.php");
+require_once("shared2/autoload.php");
 
 /* connect to the database */
-db_connect ( $CFG->dbhost, $CFG->dbname, $CFG->dbuser, $CFG->dbpass );
-mysql_set_charset('utf8');
+db_connect($CFG->dbhost, $CFG->dbname, $CFG->dbuser, $CFG->dbpass);
+mysqli_set_charset('utf8');
 session_start();
 session_regenerate_id();
 
-Settings::assign ($CFG);
+Settings::assign($CFG);
 Settings::importTable('app_configuration');
 
 $CFG->libdir = "lib";
@@ -29,9 +29,9 @@ $CFG->default_title = 'Organic Technologies';
 
 /* permission selector */
 $CFG->permissions = array(
-	2 => 'Edit',
-	1 => 'View',
-	0 => 'No Access');
+    2 => 'Edit',
+    1 => 'View',
+    0 => 'No Access');
 
 
 /* Constants */
@@ -39,6 +39,5 @@ $CFG->request_widthdrawal_id = $CFG->request_withdrawal_id;
 $CFG->form_email = $CFG->support_email;
 $CFG->request_widthdrawal_id = $CFG->request_withdrawal_id;
 
-User::logIn($_REQUEST['loginform']['user'],$_REQUEST['loginform']['pass']);
+User::logIn($_REQUEST['loginform']['user'], $_REQUEST['loginform']['pass']);
 User::logOut($_REQUEST['logout']);
-?>
